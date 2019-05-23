@@ -1,15 +1,49 @@
-<!DOCTYPE html>
+<%# <!DOCTYPE html>
 <html>
   <head>
     <title>Familyposts</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%# <%= csp_meta_tag %>
+<%# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%# <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%# </head>
 
   <body>
-    <%= yield %>
+  <%= render 'layouts/navigation' %>
+    <%# <%= yield %>
+  <%# </body>
+</html> %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   welcome_index_path %></li>
+            <li><%= link_to "Log in", '#' %></li>
+            <li><%= link_to "Sign up",   signup_path %></li>
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+        
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
