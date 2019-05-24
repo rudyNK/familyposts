@@ -1,16 +1,3 @@
-# class UsersController < ApplicationController
-  
-#   def show
-#     @user = User.find(params[:id])
-#   end
-  
-#   def new
-#     @user = User.new
-
-#   end
-# end
-
-
 class UsersController < ApplicationController
 
   def show
@@ -24,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to the Family Post App!"
 
       redirect_to @user
