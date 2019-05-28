@@ -3,8 +3,15 @@ class ArticlesController < ApplicationController
       @articles = Article.all
     end
    
+    # def show
+    #   @article = Article.find(params[:id])
+    # end
+
     def show
-      @article = Article.find(params[:id])
+      @post = Post.find(params[:id])
+      render json: @post.to_json(only: [:title, :description, :id],
+                                include: [author: { only: [:name]}])
+   
     end
    
     def new
